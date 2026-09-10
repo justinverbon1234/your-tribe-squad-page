@@ -1,0 +1,91 @@
+/* Responsive */
+
+@media (max-width: 700px) {
+  :root {
+    --page-padding: 1.5rem;
+  }
+
+  .selected,
+  .archive {
+    padding-block: 5rem;
+  }
+
+  .project,
+  .project--reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    min-height: auto;
+    margin-bottom: 8rem;
+  }
+
+  .project--reverse .project-copy {
+    order: initial;
+  }
+
+  .project-copy {
+    max-width: none;
+  }
+
+  .project-image,
+  .project-image img {
+    max-height: 500px;
+  }
+
+  .project-image img,
+  .project--reverse .project-image img {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 75%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      black 75%,
+      transparent 100%
+    );
+  }
+
+  .spot-slide {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .spot-image img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .spot-description {
+    max-width: none;
+  }
+
+  .spot-thumbs {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body::before,
+  .hero-caret,
+  .hero-arrow {
+    animation: none;
+  }
+
+  .spot-slide.is-active {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms;
+  }
+}

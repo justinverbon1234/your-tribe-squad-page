@@ -1,0 +1,17 @@
+/* Header */
+
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2rem var(--page-padding);
+}
+
+.site-logo {
+  text-decoration: none;
+}

@@ -1,0 +1,216 @@
+/* Spots */
+
+.archive {
+  padding: 7rem 0;
+  overflow: hidden;
+}
+
+.archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+  padding: 0 var(--page-padding);
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.carousel-counter {
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.carousel-counter-current {
+  color: var(--color-text);
+}
+
+.carousel-controls button {
+  padding: 0;
+
+  color: inherit;
+  background: none;
+  border: 0;
+
+  font: inherit;
+  font-size: 1.5rem;
+
+  cursor: pointer;
+}
+
+.carousel-controls button:focus-visible,
+.spot-thumb:focus-visible {
+  outline: 1px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+/* Stage */
+
+/* touch-action keeps vertical page scrolling native while horizontal
+   swipes arrive as pointer events handled in js/carousel.js. */
+.spot-stage {
+  padding: 0 var(--page-padding);
+
+  touch-action: pan-y;
+}
+
+/* Slides: hidden by default, without JS only the first is shown so the
+   section still works with scripts disabled. */
+.spot-slide {
+  display: none;
+  grid-template-columns: 1fr 0.6fr;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.no-js .spot-slide:first-child {
+  display: grid;
+}
+
+/* With JS, exactly one slide, the one marked is-active, is visible. */
+.js .spot-slide {
+  display: none;
+}
+
+.js .spot-slide.is-active {
+  display: grid;
+
+  animation: spot-in 0.5s ease;
+}
+
+@keyframes spot-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.spot-image {
+  position: relative;
+  isolation: isolate;
+}
+
+.spot-image img {
+  width: 100%;
+  aspect-ratio: 8 / 5;
+
+  object-fit: cover;
+
+  opacity: 0.9;
+
+  filter:
+    saturate(0.85)
+    contrast(1.05)
+    brightness(0.9);
+}
+
+/* Stacked print behind the image, same depth language as Selected. */
+.spot-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: rgb(0 0 0 / 55%);
+  border: 1px solid rgb(244 244 241 / 12%);
+
+  transform: translate(14px, 18px);
+
+  transition: transform 0.2s ease-out;
+}
+
+.spot-image:hover::before {
+  transform: translate(22px, 28px);
+}
+
+/* Copy */
+
+.spot-copy h2 {
+  margin: 0.75rem 0 1rem;
+
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.spot-meta,
+.spot-role {
+  margin: 0;
+
+  color: var(--color-muted);
+
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spot-description {
+  margin: 0 0 1.25rem;
+
+  max-width: 320px;
+}
+
+/* Thumbnails */
+
+.spot-thumbs {
+  display: flex;
+  gap: 1rem;
+
+  width: min(100% - 2 * var(--page-padding), 1100px);
+  margin: 3rem auto 0;
+}
+
+.spot-thumb {
+  flex: 0 0 auto;
+  padding: 0;
+
+  background: none;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.spot-thumb img {
+  width: clamp(64px, 8vw, 110px);
+  aspect-ratio: 8 / 5;
+
+  object-fit: cover;
+
+  opacity: 0.5;
+
+  filter:
+    saturate(0.4)
+    contrast(1.05)
+    brightness(0.85);
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+.spot-thumb:hover img {
+  opacity: 0.8;
+}
+
+.spot-thumb[aria-current="true"] img {
+  opacity: 1;
+
+  filter: none;
+
+  outline: 1px solid var(--color-muted);
+  outline-offset: 4px;
+}

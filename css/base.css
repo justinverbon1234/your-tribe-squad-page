@@ -1,0 +1,102 @@
+:root {
+  --color-background: #080808;
+  --color-text: #f4f4f1;
+  --color-muted: #a3a3a0;
+
+  --wave-one: #6b1f2a;
+  --wave-two: #243f8f;
+  --wave-three: #5b3f72;
+
+  --font-sans: Arial, Helvetica, sans-serif;
+  --page-padding: 2.5rem;
+}
+
+/* Base */
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background: var(--color-background);
+  color: var(--color-text);
+
+  font-family: var(--font-sans);
+  line-height: 1.5;
+
+  overflow-x: hidden;
+  isolation: isolate;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+/* Background */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 25%,
+      var(--wave-one),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 80% 35%,
+      var(--wave-two),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 45% 80%,
+      var(--wave-three),
+      transparent 42%
+    );
+
+  filter: blur(90px);
+  pointer-events: none;
+
+  animation: waves 20s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: rgb(8 8 8 / 30%);
+  pointer-events: none;
+}
+
+@keyframes waves {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
