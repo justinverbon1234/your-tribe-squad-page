@@ -11,7 +11,7 @@ import {
 
 const TRAVEL_DISTANCE = 60;
 const TRANSITION_MS = 550;
-const STAR_STAGGER_MS = 20;
+const STAR_STAGGER_MS = 8;
 
 const announce = (ctx, message) => {
   if (ctx.announcer) {
