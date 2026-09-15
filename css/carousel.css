@@ -1,7 +1,7 @@
 /* Spots */
 
 .archive {
-  padding: 7rem 0;
+  padding: 3rem 0;
   overflow: hidden;
 }
 
@@ -9,199 +9,110 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  margin-bottom: 3rem;
-  padding: 0 var(--page-padding);
-}
-
-.carousel-controls {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.carousel-counter {
-  margin: 0;
-
-  color: var(--color-muted);
-
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-}
-
-.carousel-counter-current {
-  color: var(--color-text);
-}
-
-.carousel-controls button {
-  padding: 0;
-
-  color: inherit;
-  background: none;
-  border: 0;
-
-  font: inherit;
-  font-size: 1.5rem;
-
-  cursor: pointer;
-}
-
-.carousel-controls button:focus-visible,
-.spot-thumb:focus-visible {
-  outline: 1px solid var(--color-text);
-  outline-offset: 4px;
-}
-
-/* Stage */
-
-.spot-stage {
-  padding: 0 var(--page-padding);
-
-  touch-action: pan-y;
-}
-
-
-.spot-slide {
-  display: none;
-  grid-template-columns: 1fr 0.6fr;
-  align-items: center;
-  gap: clamp(2rem, 6vw, 7rem);
-
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.no-js .spot-slide:first-child {
-  display: grid;
-}
-
-.js .spot-slide.is-active {
-  display: grid;
-
-  animation: spot-in 0.5s ease;
-}
-
-@keyframes spot-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.spot-image {
   position: relative;
-  z-index: 0;
 }
 
-.spot-image img {
-  width: 100%;
-  aspect-ratio: 8 / 5;
-
-  object-fit: cover;
-
-  opacity: 0.9;
-
-  filter:
-    saturate(0.85)
-    contrast(1.05)
-    brightness(0.9);
+.carousel::scroll-button(left) {
+  content: "◄";
 }
 
-.spot-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  background: rgb(0 0 0 / 55%);
-  border: 1px solid rgb(244 244 241 / 12%);
-
-  transform: translate(14px, 18px);
-
-  transition: transform 0.2s ease-out;
+.carousel::scroll-button(right) {
+  content: "►";
+  float: center;
 }
 
-.spot-image:hover::before {
-  transform: translate(22px, 28px);
+
+.scroll{
+    text-align: center;
 }
 
-/* Copy */
-
-.spot-copy h2 {
-  margin: 0.75rem 0 1rem;
-
-  font-size: clamp(2.5rem, 5vw, 5rem);
-  font-weight: 500;
-  line-height: 0.95;
+.Right, .Left{
+    margin: 0;
+    flex-shrink: 0;
+    align-items: center;
 }
 
-.spot-meta,
-.spot-role {
-  margin: 0;
-
-  color: var(--color-muted);
-
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.Right{
+    float: right;
 }
 
-.spot-description {
-  margin: 0 0 1.25rem;
-
-  max-width: 320px;
+.Right, .Left{
+    border-radius: 5px;
 }
 
-/* Thumbnails */
+.bye{
+    text-align: center;
+    margin-top: 100px;
 
-.spot-thumbs {
-  display: flex;
-  gap: 1rem;
-
-  width: min(100% - 2 * var(--page-padding), 1100px);
-  margin: 3rem auto 0;
 }
 
-.spot-thumb {
-  flex: 0 0 auto;
-  padding: 0;
-
-  background: none;
-  border: 0;
-
-  cursor: pointer;
+.Contact{
+    list-style: none;
+    display: flex;
+    padding: 15px;
+    gap: 100px;
+    justify-content: center;
 }
 
-.spot-thumb img {
-  width: clamp(64px, 8vw, 110px);
-  aspect-ratio: 8 / 5;
-
-  object-fit: cover;
-
-  opacity: 0.5;
-
-  filter:
-    saturate(0.4)
-    contrast(1.05)
-    brightness(0.85);
-
-  transition:
-    opacity 0.3s ease,
-    filter 0.3s ease;
+.Contact2{
+    list-style: none;
+    display: flex;
+    padding: 15px;
+    gap: 100px;
+    justify-content: center;
+}
+.carousel{
+    margin: 100px auto;
+    width: 90%;
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    gap: 1em
 }
 
-.spot-thumb:hover img {
-  opacity: 0.8;
+.carousel::-webkit-scrollbar{
+    display: none;
 }
 
-.spot-thumb[aria-current="true"] img {
-  opacity: 1;
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 20s infinite linear;
+}
 
-  filter: none;
+.card{
+    flex: 0 0 4em;
+    width: 300px;
+    height: 300px;
+    padding: 0.5em;
+  --color-background: #080808;
+  --color-text: #f4f4f1;
+  --color-muted: #a3a3a0;
 
-  outline: 1px solid var(--color-muted);
-  outline-offset: 4px;
+  --wave-one: #6b1f2a;
+  --wave-two: #243f8f;
+  --wave-three: #5b3f72;
+    font-size: 3em;
+    border-radius: .2em;
+    text-align: center;
+    align-content: center;
+    flex-shrink: 0;
+}
+
+.spots{
+    width: 300px;
+    height: 5em;
+    padding: 0.5em;
+    border-radius: .2em;
+    align-content: center;
+    object-fit: cover;
+    display: block;
+    border-radius: 25%;
+}
+
+@keyframes spin{
+    from{translate: 0;}
+    to {translate: -100%;}
 }
