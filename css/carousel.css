@@ -26,19 +26,11 @@
     text-align: center;
 }
 
-.Right, .Left{
-    margin: 0;
-    flex-shrink: 0;
-    align-items: center;
+
+.clickthis{
+    text-align: center;
 }
 
-.Right{
-    float: right;
-}
-
-.Right, .Left{
-    border-radius: 5px;
-}
 
 .bye{
     text-align: center;
@@ -78,7 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+    gap: 1.5em;
     animation: spin 20s infinite linear;
 }
 
