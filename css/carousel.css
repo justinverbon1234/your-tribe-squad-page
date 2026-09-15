@@ -16,16 +16,19 @@
   content: "◄";
 }
 
+/* Wat is float center? */
 .carousel::scroll-button(right) {
   content: "►";
-  float: center;
+  float: center; 
 }
 
 
+/* deze 2 classes doen nu het zelfde, hoe zou je dit kunnen oplossesn?*/
+
+/* Kijk naar de namen van je class namen, als ik er zo naar kijk weer ik bijvoorbeeld niet wat, bij wat hoort. */
 .scroll{
     text-align: center;
 }
-
 
 .clickthis{
     text-align: center;
@@ -74,6 +77,10 @@
     animation: spin 20s infinite linear;
 }
 
+
+/* Je geeft hier op 2 manieren een breedte mee, welke waarde bepaalt hoe breed het word? */
+
+
 .card{
     flex: 0 0 4em;
     width: 300px;
@@ -82,6 +89,9 @@
   --color-background: #080808;
   --color-text: #f4f4f1;
   --color-muted: #a3a3a0;
+  /* Deze variabelen bestaan al in :root.
+   Kijk eens of .card ze gewoon kan gebruiken zonder ze opnieuw
+   te declareren. Alleen lokaal overschrijven als dat echt nodig is. */
 
   --wave-one: #6b1f2a;
   --wave-two: #243f8f;
@@ -94,17 +104,53 @@
 }
 
 .spots{
-    width: 300px;
+    width: 300px; 
     height: 5em;
     padding: 0.5em;
+    /* Je combineert hier px en em voor de afmetingen.
+   Kijk eens waar de waarde van 1em vandaan komt en wat er gebeurt
+   als de font-size van het bovenliggende element verandert.
+   Misschien is het handiger om één duidelijke manier van schalen
+   voor de afbeelding te kiezen. */
+    
     border-radius: .2em;
     align-content: center;
     object-fit: cover;
     display: block;
-    border-radius: 25%;
+    border-radius: 25%;  /* border-radius staat hierboven al.
+      Welke van de twee waarden gebruikt de browser uiteindelijk?
+      Kies één plek om de gewenste afronding te bepalen. */
 }
 
+
+
+
+ /* Kijk ook naar het moment waarop de animatie opnieuw begint.
+       Aan het einde springt translate weer terug van -100% naar 0.
+
+       Voor een echt vloeiende loop moet het beeld op het eindpunt
+       visueel hetzelfde zijn als op het beginpunt, zodat die reset
+       niet zichtbaar wordt. */
 @keyframes spin{
     from{translate: 0;}
     to {translate: -100%;}
 }
+
+/* Kijk nog eens goed naar hoe de automatische scroll werkt.
+   Beide .group elementen krijgen dezelfde animatieduur, maar ze
+   hebben niet dezelfde breedte / hoeveelheid cards.
+
+   Daardoor betekent translate: -100% voor beide groepen een andere
+   afstand en bewegen ze niet met dezelfde snelheid. Hierdoor kunnen
+   de groepen elkaar uiteindelijk overlappen.
+
+   Denk voor een vloeiende infinite carousel aan één doorlopende
+   reeks waarbij het herhaalde gedeelte exact dezelfde breedte en
+   inhoud heeft, of aan één gezamenlijke track die je animeert. */
+
+
+/* Kijk nog eens goed naar de automatische scroll.
+   De twee .group elementen zijn niet even groot, maar krijgen wel
+   dezelfde animatie. Wat doet dat met de snelheid en overgang?
+
+   Kijk ook goed naar het moment waarop de animatie opnieuw begint. */

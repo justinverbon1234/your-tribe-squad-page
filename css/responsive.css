@@ -24,7 +24,6 @@
 
   .spot-thumbs {
     overflow-x: auto;
-    scrollbar-width: thin;
   }
 }
 

@@ -284,7 +284,7 @@ export const constellations = [
         name: "Wesley",
         screenshot: "images/Wesley.png",
         url: "https://toonicwesley.github.io/your-tribe-profile-card/",
-        position: { x: 55, y: 48 },
+        position: { x: 60, y: 55 },
       },
       {
         id: "younes",
