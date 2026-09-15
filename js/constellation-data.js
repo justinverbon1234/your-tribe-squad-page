@@ -1,7 +1,7 @@
 export const constellations = [
   {
-    id: "corona-borealis",
-    name: "Corona Borealis",
+    id: "lyra",
+    name: "Lyra",
     position: { x: 14, y: 44 },
 
     members: [

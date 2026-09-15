@@ -68,6 +68,13 @@ export const travelTo = (
 
   render();
 
+  outgoingStage.classList.add("is-leaving");
+  stage.classList.add("is-entering");
+
+  /* Force a reflow so the enter animation starts from its offset
+     position instead of snapping in from the layout. */
+  void stage.offsetWidth;
+
   announce(ctx, message);
 
   if (hadFocus) {
@@ -76,10 +83,17 @@ export const travelTo = (
       ?.focus({ preventScroll: true });
   }
 
-  requestAnimationFrame(() => {
-    outgoingStage.classList.add("is-leaving");
-    stage.classList.add("is-entering");
+  /* Stars stagger their entrance with --delay, so wait for the full
+     animation (max delay + duration) before cleanup, otherwise late
+     stars snap mid-animation. */
+  const maxDelay = Math.max(
+    0,
+    ...[...stage.querySelectorAll(".constellation-star")].map(
+      star => parseFloat(star.style.getPropertyValue("--delay")) || 0
+    )
+  );
 
+  requestAnimationFrame(() => {
     setTimeout(() => {
       outgoingStage.remove();
 
@@ -89,7 +103,7 @@ export const travelTo = (
       stage.style.removeProperty("--travel-y");
 
       state.isTravelling = false;
-    }, TRANSITION_MS);
+    }, TRANSITION_MS + maxDelay);
   });
 };
 
@@ -108,6 +122,7 @@ export const renderUniverse = ctx => {
         position: constellation.position,
         name: constellation.name,
         meta: `${constellation.members.length} members`,
+        members: constellation.members,
         delay: index * STAR_STAGGER_MS,
         modifier: "constellation-star--universe",
 
@@ -168,6 +183,7 @@ const renderDestinations = (ctx, constellation) => {
 
         name: target.name,
         meta: `${target.members.length} members · travel`,
+        members: target.members,
         modifier: "constellation-star--destination",
 
         onClick: () =>
