@@ -226,7 +226,7 @@ export const constellations = [
         name: "Rick",
         screenshot: "images/Rick.png",
         url: "https://rickd377.github.io/your-tribe-profile-card/",
-        position: { x: 52, y: 47 },
+        position: { x: 60, y: 47 },
       },
       {
         id: "rosa",

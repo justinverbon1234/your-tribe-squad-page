@@ -83,9 +83,6 @@ export const travelTo = (
       ?.focus({ preventScroll: true });
   }
 
-  /* Stars stagger their entrance with --delay, so wait for the full
-     animation (max delay + duration) before cleanup, otherwise late
-     stars snap mid-animation. */
   const maxDelay = Math.max(
     0,
     ...[...stage.querySelectorAll(".constellation-star")].map(
@@ -125,6 +122,11 @@ export const renderUniverse = ctx => {
         members: constellation.members,
         delay: index * STAR_STAGGER_MS,
         modifier: "constellation-star--universe",
+
+        /* Bottom-half constellations get their label above the dot,
+           pointing toward the middle of the screen. */
+        labelPosition:
+          constellation.position.y > 60 ? "above" : "below",
 
         onClick: () =>
           travelTo(

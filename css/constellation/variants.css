@@ -98,7 +98,20 @@
   text-transform: uppercase;
   white-space: nowrap;
 
+  /* Default: below the dot. */
   transform: translate(-50%, 6px);
+}
+
+.constellation-star-members-label--above {
+  transform: translate(-50%, calc(-100% - 6px));
+}
+
+.constellation-star-members-label--left {
+  transform: translate(calc(-100% - 6px), -50%);
+}
+
+.constellation-star-members-label--right {
+  transform: translate(6px, -50%);
 }
 
 .constellation-star--universe:hover .constellation-star-members,
