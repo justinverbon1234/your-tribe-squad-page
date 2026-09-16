@@ -98,7 +98,7 @@
   text-transform: uppercase;
   white-space: nowrap;
 
-  /* Default: below the dot. */
+
   transform: translate(-50%, 6px);
 }
 
@@ -112,6 +112,32 @@
 
 .constellation-star-members-label--right {
   transform: translate(6px, -50%);
+}
+
+
+.constellation-star-members-label--clickable {
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+
+.constellation-star-members-label--clickable::after {
+  content: "";
+
+  position: absolute;
+  inset: -0.3rem -0.5rem;
+}
+
+.constellation-star-members-label--clickable:hover,
+.constellation-star-members-label--clickable:focus-visible {
+  color: var(--color-text);
+
+  text-shadow: 0 0 8px rgb(244 244 241 / 60%);
 }
 
 .constellation-star--universe:hover .constellation-star-members,

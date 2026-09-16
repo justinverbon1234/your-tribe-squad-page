@@ -9,6 +9,7 @@ export const createStar = (ctx, {
   members,
   modifier,
   onClick,
+  onMemberClick,
   href,
   delay = 0,
   labelPosition = "below",
@@ -81,12 +82,20 @@ export const createStar = (ctx, {
       svg.append(dot);
     }
 
-    /* Every member name sits ABOVE its dot, filling the empty
-       space at the top of the popup. */
     for (const member of members) {
       const label = document.createElement("span");
+
       label.className =
         "constellation-star-members-label constellation-star-members-label--above";
+
+      if (onMemberClick) {
+        label.classList.add("constellation-star-members-label--clickable");
+        label.addEventListener("click", event => {
+          event.stopPropagation();
+          onMemberClick(member);
+        });
+      }
+
       label.style.left = `${member.position.x}%`;
       label.style.top = `${member.position.y}%`;
       label.textContent = member.name;
