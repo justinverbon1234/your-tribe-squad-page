@@ -31,7 +31,7 @@ Open de live site.
 
 - **Nav** — spring naar Home, Work of Spots  
 - **Constellation** — kies een squadlid om het visitekaartje te openen  
-- **Spots** — laat de carousel lopen, of klik op een locatie voor extra info  
+- **Spots** — laat de carousel lopen, of klik op een locatie voor extra info, klik op de contactgegevens om verstuurd te worden naar de gewenste locatie.  
 
 Geen login. Het is een statische HTML-, CSS- en JavaScript-site.
 
@@ -45,7 +45,7 @@ Technieken
 - Vanilla JavaScript
 - CSS Grid en Flexbox
 - IntersectionObserver voor scroll-reveals
-- Oneindige image-carousel
+- Oneindige image-carousel, keyframes en overflow elementen. 
 - prefers-reduced-motion
 
 
