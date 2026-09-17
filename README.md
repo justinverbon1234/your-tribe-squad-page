@@ -21,7 +21,7 @@ De pagina bestaat uit drie onderdelen:
 2. **Work / Constellations** — squadleden als een sterrenbeeld. Hover of tik op een naam om hun kaart te zien en hun profielsite te openen  
 3. **Spots** — oneindige carousel met HvA- / Amstelcampus-plekken. Klik op een foto voor meer informatie  
 
-De uitstraling is bordeaux, paars en blauw, met reflecties onder de projectbeelden en rustige scroll-animaties.
+De uitstraling is bordeaux, paars en blauw.
 
 
 Gebruik
