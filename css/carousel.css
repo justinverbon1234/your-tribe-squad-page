@@ -18,7 +18,7 @@
 
 .carousel::scroll-button(right) {
   content: "►";
-  float: center;
+
 }
 
 
@@ -46,13 +46,6 @@
     justify-content: center;
 }
 
-.Contact2{
-    list-style: none;
-    display: flex;
-    padding: 15px;
-    gap: 100px;
-    justify-content: center;
-}
 .carousel{
     margin: 100px auto;
     width: 90%;
@@ -73,6 +66,8 @@
     gap: 1.5em;
     animation: spin 20s infinite linear;
 }
+
+
 
 .card{
     flex: 0 0 4em;
