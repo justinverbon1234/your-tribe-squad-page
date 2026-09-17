@@ -3,6 +3,15 @@
 @media (max-width: 700px) {
   :root {
     --page-padding: 1.5rem;
+    --header-height: 4.5rem;
+  }
+
+  .site-nav {
+    gap: 1.25rem;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
   }
 
   .archive {

@@ -1,17 +1,71 @@
 /* Header */
 
 .site-header {
-  position: absolute;
-  inset: 0 0 auto;
+  position: sticky;
+  top: 0;
   z-index: 100;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 2rem var(--page-padding);
+  min-height: var(--header-height);
+  padding: 0 var(--page-padding);
+
+  /* Always readable, even in browsers without scroll-driven animations. */
+  background: rgb(8 8 8 / 85%);
+  border-bottom: 1px solid rgb(244 244 241 / 10%);
+
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  transition: transform 0.3s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+/* Progressive enhancement: start transparent at the top of the page and
+   let scrolling fade the bar in, instead of JS toggling a class. */
+@supports (animation-timeline: view()) {
+  .site-header {
+    background: transparent;
+    border-bottom-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+
+    animation: header-scroll linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100px;
+  }
+}
+
+@keyframes header-scroll {
+  to {
+    background: rgb(8 8 8 / 55%);
+    border-bottom-color: rgb(244 244 241 / 10%);
+
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
 }
 
 .site-logo {
+  position: relative;
+  z-index: 1;
+
   text-decoration: none;
+}
+
+.site-header .site-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.constellation,
+.archive {
+  scroll-margin-top: var(--header-height);
 }
