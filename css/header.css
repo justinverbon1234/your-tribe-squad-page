@@ -12,7 +12,6 @@
   min-height: var(--header-height);
   padding: 0 var(--page-padding);
 
-  /* Always readable, even in browsers without scroll-driven animations. */
   background: transparent;
 
   -webkit-backdrop-filter: blur(14px);
@@ -25,8 +24,6 @@
   transform: translateY(-100%);
 }
 
-/* Progressive enhancement: start transparent at the top of the page and
-   let scrolling fade the bar in, instead of JS toggling a class. */
 @supports (animation-timeline: view()) {
   .site-header {
     background: transparent;

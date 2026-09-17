@@ -22,6 +22,18 @@
 }
 
 
+footer{
+    padding: 0 var(--page-padding) 4rem;
+}
+
+footer hr{
+    width: min(48rem, 100%);
+    margin: 0 auto;
+
+    border: none;
+    border-top: 1px solid rgb(244 244 241 / 15%);
+}
+
 .bye{
     text-align: center;
     margin-top: 100px;
@@ -37,8 +49,18 @@
     text-decoration: none;
 }
 
-.Contact:hover{
+.Contact a{
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.Contact a:hover,
+.Contact a:focus-visible{
     color: pink;
+
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
 }
 
 .carousel {
