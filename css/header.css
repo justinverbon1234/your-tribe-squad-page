@@ -13,8 +13,7 @@
   padding: 0 var(--page-padding);
 
   /* Always readable, even in browsers without scroll-driven animations. */
-  background: rgb(8 8 8 / 85%);
-  border-bottom: 1px solid rgb(244 244 241 / 10%);
+  background: transparent;
 
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
@@ -43,8 +42,8 @@
 
 @keyframes header-scroll {
   to {
-    background: rgb(8 8 8 / 55%);
-    border-bottom-color: rgb(244 244 241 / 10%);
+    background: transparent;
+    border-bottom-color: transparent;
 
     -webkit-backdrop-filter: blur(14px);
     backdrop-filter: blur(14px);
