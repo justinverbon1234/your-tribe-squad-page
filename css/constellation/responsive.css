@@ -32,4 +32,8 @@
   .constellation-stage.is-leaving .constellation-star {
     transition: none;
   }
+
+  .constellation-star--member.is-arriving .constellation-star-point {
+    animation: none;
+  }
 }

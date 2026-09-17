@@ -1,7 +1,7 @@
 export const constellations = [
   {
-    id: "corona-borealis",
-    name: "Corona Borealis",
+    id: "lyra",
+    name: "Lyra",
     position: { x: 14, y: 44 },
 
     members: [
@@ -55,10 +55,10 @@ export const constellations = [
         position: { x: 15, y: 76 },
       },
       {
-        id: "jesper",
-        name: "Jesper",
-        screenshot: "images/Jesper.png",
-        url: "https://jesperkoning1.github.io/your-tribe-profile-card/",
+        id: "xin",
+        name: "Xin",
+        screenshot: "images/xin.png",
+        url: "https://xinjuliette.github.io/your-tribe-profile-card/",
         position: { x: 50, y: 72 },
       },
     ],
@@ -226,7 +226,7 @@ export const constellations = [
         name: "Rick",
         screenshot: "images/Rick.png",
         url: "https://rickd377.github.io/your-tribe-profile-card/",
-        position: { x: 52, y: 47 },
+        position: { x: 60, y: 47 },
       },
       {
         id: "rosa",
@@ -284,7 +284,7 @@ export const constellations = [
         name: "Wesley",
         screenshot: "images/Wesley.png",
         url: "https://toonicwesley.github.io/your-tribe-profile-card/",
-        position: { x: 55, y: 48 },
+        position: { x: 60, y: 55 },
       },
       {
         id: "younes",
@@ -299,6 +299,13 @@ export const constellations = [
         screenshot: "images/Youssra.png",
         url: "https://y0usss.github.io/your-tribe-profile-card/",
         position: { x: 45, y: 77 },
+      },
+      {
+        id: "jesper",
+        name: "Jesper",
+        screenshot: "images/Jesper.png",
+        url: "https://jesperkoning1.github.io/your-tribe-profile-card/",
+        position: { x: 75, y: 62 },
       },
     ],
   },

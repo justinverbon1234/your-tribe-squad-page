@@ -12,37 +12,34 @@
 </head>
 <body>
 
+
   <header class="site-header">
     <a class="site-logo" href="./">A.M.S</a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="site-menu"
-    >
-      <span></span>
-      <span></span>
-    </button>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#spots">Spots</a>
+    </nav>
   </header>
 
-  <div class="menu-overlay" aria-hidden="true"></div>
-
-  <nav class="site-menu" id="site-menu" aria-label="Primary navigation">
+  <!-- Fixed bottom tab bar for phones/tablets, shown only via CSS below 700px. -->
+  <nav class="tab-bar" aria-label="Primary">
+    <a href="#home">Home</a>
     <a href="#work">Work</a>
     <a href="#spots">Spots</a>
   </nav>
 
   <main>
 
-    <div class="hero">
+    <div class="hero" id="home">
       <h1 class="hero-title" aria-label="A.M.S">
         <span class="hero-text">A.M.S</span><span class="hero-caret" aria-hidden="true"></span>
       </h1>
 
       <a class="hero-arrow" href="#work">↓</a>
     </div>
+
+    <!-- Justin doet het sterren stelsel. -->
 
     <section class="constellation" id="work">
       <p class="section-label">02 / Constellations</p>
@@ -78,7 +75,7 @@
         <li><a href="https://davidoo379.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/David.png" alt="" loading="lazy" decoding="async"> David</a></li>
         <li><a href="https://emmatje.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Emmanuel.png" alt="" loading="lazy" decoding="async"> Emmanuel</a></li>
         <li><a href="https://js5603.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Jarellsa.png" alt="" loading="lazy" decoding="async"> Jarellsa</a></li>
-        <li><a href="https://jesperkoning1.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Jesper.png" alt="" loading="lazy" decoding="async"> Jesper</a></li>
+        <li><a href="https://xinjuliette.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/xin.png" alt="" loading="lazy" decoding="async"> Xin</a></li>
         <li><a href="https://s2108887.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Joost.png" alt="" loading="lazy" decoding="async"> Joost</a></li>
         <li><a href="https://loisaantjes.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Lois.png" alt="" loading="lazy" decoding="async"> Lois</a></li>
         <li><a href="https://louavb.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Lou.png" alt="" loading="lazy" decoding="async"> Lou</a></li>
@@ -102,6 +99,7 @@
         <li><a href="https://toonicwesley.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Wesley.png" alt="" loading="lazy" decoding="async"> Wesley</a></li>
         <li><a href="https://youneselkharraz.github.io/i-love-web/" target="_blank" rel="noopener noreferrer"><img src="images/Younes.png" alt="" loading="lazy" decoding="async"> Younes</a></li>
         <li><a href="https://y0usss.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Youssra.png" alt="" loading="lazy" decoding="async"> Youssra</a></li>
+        <li><a href="https://jesperkoning1.github.io/your-tribe-profile-card/" target="_blank" rel="noopener noreferrer"><img src="images/Jesper.png" alt="" loading="lazy" decoding="async"> Jesper</a></li>
       </ul>
     </section>
 
@@ -112,16 +110,18 @@
         <div class="carousel-controls">
           <p class="carousel-counter">
             <span class="carousel-counter-current">01</span>
-            <span aria-hidden="true">/ 12</span>
+            <span aria-hidden="true">/ 12</span>   
           </p>
           </div>
     </header>
+    <!-- Is aria-hidden nodig? en weet je waarom je het gebruikt? kijk hier naar. -->
+
+    <!-- zijn de tags correct hier? dubbelcheck dit even, kijk specifiek naar h4. -->
         
 <h1 class="scroll">HvA Spots</h1>
 <p class="clickthis">Click around and find out!</p>
 
 <div class="carousel">
-    
     <div class="group">
         <a href="https://coffeecompany.nl/locations/wibautstraat-7/">
     <div class="card"><img class="spots" src="ImagesSpots/cofeee.JPEG" alt="image of a coffee spot"></div>
@@ -159,6 +159,7 @@
     
 </div>
 
+<!-- Bounyad doet/ heeft de spots en footer gedaan -->
 
 <footer>
     <hr>

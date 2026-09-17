@@ -45,6 +45,13 @@
   pointer-events: none;
 }
 
+/* Brief post-travel grace: the enter animation is done, but the
+   stage stays click-through so a resting cursor can't immediately
+   open a popup on whatever star it happens to rest on. */
+.constellation-stage.is-settling {
+  pointer-events: none;
+}
+
 
 .constellation-stage--outgoing.is-leaving .constellation-star {
   opacity: 0;
@@ -89,9 +96,37 @@
 .constellation-stage.is-entering .constellation-star {
   animation:
     star-enter
-    0.5s
+    0.4s
     cubic-bezier(0.22, 1, 0.36, 1)
     both;
 
   animation-delay: var(--delay, 0ms);
+}
+
+/* Arrival highlight: the star the visitor travelled to pulses its
+   point so the eye can find it while the preview fades in. Mouse
+   users get no :focus-visible ring, so this is their cue. */
+@keyframes star-arrive {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 14px 2px rgb(244 244 241 / 40%);
+  }
+
+  35% {
+    transform: scale(1.8);
+    box-shadow: 0 0 26px 8px rgb(244 244 241 / 70%);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 14px 2px rgb(244 244 241 / 40%);
+  }
+}
+
+.constellation-star--member.is-arriving .constellation-star-point {
+  animation:
+    star-arrive
+    1.4s
+    ease-out
+    both;
 }

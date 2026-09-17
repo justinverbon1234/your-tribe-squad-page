@@ -33,6 +33,15 @@
     box-shadow 0.3s ease;
 }
 
+
+.constellation-star--label-above {
+  justify-items: center;
+}
+
+.constellation-star--label-above .constellation-star-point {
+  order: 1;
+}
+
 .constellation-star-name {
   font-size: 0.875rem;
   letter-spacing: 0.14em;

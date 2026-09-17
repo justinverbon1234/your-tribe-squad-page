@@ -3,8 +3,7 @@
   position: relative;
   display: grid;
   place-items: center;
-
-  min-height: 100svh;
+  min-height: calc(100svh - var(--header-height));
   padding: 0 var(--page-padding);
 }
 

@@ -46,6 +46,13 @@
     justify-content: center;
 }
 
+.Contact2{
+    list-style: none;
+    display: flex;
+    padding: 15px;
+    gap: 100px;
+    justify-content: center;
+}
 .carousel{
     margin: 100px auto;
     width: 90%;

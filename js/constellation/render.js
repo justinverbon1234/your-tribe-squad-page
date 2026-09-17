@@ -11,7 +11,9 @@ import {
 
 const TRAVEL_DISTANCE = 60;
 const TRANSITION_MS = 550;
-const STAR_STAGGER_MS = 20;
+const STAR_STAGGER_MS = 8;
+const SETTLE_GRACE_MS = 300;
+const ARRIVAL_GLOW_MS = 1600;
 
 const announce = (ctx, message) => {
   if (ctx.announcer) {
@@ -27,7 +29,8 @@ export const travelTo = (
   ctx,
   render,
   direction = { x: 0, y: 0 },
-  message
+  message,
+  focusName
 ) => {
   const { stage, state, reducedMotion } = ctx;
 
@@ -68,18 +71,21 @@ export const travelTo = (
 
   render();
 
+  outgoingStage.classList.add("is-leaving");
+  stage.classList.add("is-entering");
+
+  void stage.offsetWidth;
+
   announce(ctx, message);
 
-  if (hadFocus) {
-    stage
-      .querySelector(".constellation-star")
-      ?.focus({ preventScroll: true });
-  }
+  const maxDelay = Math.max(
+    0,
+    ...[...stage.querySelectorAll(".constellation-star")].map(
+      star => parseFloat(star.style.getPropertyValue("--delay")) || 0
+    )
+  );
 
   requestAnimationFrame(() => {
-    outgoingStage.classList.add("is-leaving");
-    stage.classList.add("is-entering");
-
     setTimeout(() => {
       outgoingStage.remove();
 
@@ -89,7 +95,31 @@ export const travelTo = (
       stage.style.removeProperty("--travel-y");
 
       state.isTravelling = false;
-    }, TRANSITION_MS);
+
+      /* Focus only once the stars have landed, so the member preview
+         doesn't pop open mid-animation before its star has arrived. */
+      if (hadFocus) {
+        const target = focusName
+          ? [...stage.querySelectorAll(".constellation-star")].find(
+              star =>
+                star.querySelector(".constellation-star-name")?.textContent
+                  === focusName
+            )
+          : null;
+
+        (target ?? stage.querySelector(".constellation-star"))
+          ?.focus({ preventScroll: true });
+      }
+
+      /* Grace period: keep the stage click-through for a moment after
+         landing, so a resting cursor can't trigger stray hover popups
+         the instant the new view arrives. */
+      stage.classList.add("is-settling");
+
+      setTimeout(() => {
+        stage.classList.remove("is-settling");
+      }, SETTLE_GRACE_MS);
+    }, TRANSITION_MS + maxDelay);
   });
 };
 
@@ -108,8 +138,14 @@ export const renderUniverse = ctx => {
         position: constellation.position,
         name: constellation.name,
         meta: `${constellation.members.length} members`,
+        members: constellation.members,
         delay: index * STAR_STAGGER_MS,
         modifier: "constellation-star--universe",
+
+        /* Bottom-half constellations get their label above the dot,
+           pointing toward the middle of the screen. */
+        labelPosition:
+          constellation.position.y > 60 ? "above" : "below",
 
         onClick: () =>
           travelTo(
@@ -120,6 +156,18 @@ export const renderUniverse = ctx => {
               constellation.position
             ),
             `${constellation.name}, ${constellation.members.length} members`
+          ),
+
+        onMemberClick: member =>
+          travelTo(
+            ctx,
+            () => renderConstellation(ctx, constellation.id, member.name),
+            directionBetween(
+              { x: 50, y: 50 },
+              constellation.position
+            ),
+            `${member.name} · ${constellation.name}, ${constellation.members.length} members`,
+            member.name
           ),
       })
     );
@@ -168,6 +216,7 @@ const renderDestinations = (ctx, constellation) => {
 
         name: target.name,
         meta: `${target.members.length} members · travel`,
+        members: target.members,
         modifier: "constellation-star--destination",
 
         onClick: () =>
@@ -180,12 +229,24 @@ const renderDestinations = (ctx, constellation) => {
             ),
             `${target.name}, ${target.members.length} members`
           ),
+
+        onMemberClick: member =>
+          travelTo(
+            ctx,
+            () => renderConstellation(ctx, target.id, member.name),
+            directionBetween(
+              constellation.position,
+              target.position
+            ),
+            `${member.name} · ${target.name}, ${target.members.length} members`,
+            member.name
+          ),
       })
     );
   }
 };
 
-export const renderConstellation = (ctx, id) => {
+export const renderConstellation = (ctx, id, focusName) => {
   const { stage, state } = ctx;
 
   const constellation = constellations.find(
@@ -215,14 +276,26 @@ export const renderConstellation = (ctx, id) => {
    * Member stars
    */
   constellation.members.forEach((member, index) => {
+    const isTarget = focusName === member.name;
+
     const star = createStar(ctx, {
       position: member.position,
       name: member.name,
       meta: formatIndex(index + 1),
-      delay: index * STAR_STAGGER_MS,
+
+      /* The star the visitor travelled to arrives first. */
+      delay: isTarget ? 0 : index * STAR_STAGGER_MS,
       modifier: "constellation-star--member",
       href: member.url,
     });
+
+    if (isTarget) {
+      star.classList.add("is-arriving");
+
+      setTimeout(() => {
+        star.classList.remove("is-arriving");
+      }, ARRIVAL_GLOW_MS);
+    }
 
     bindPreview(
       ctx,
