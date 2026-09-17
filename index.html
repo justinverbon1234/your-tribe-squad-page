@@ -22,9 +22,16 @@
     </nav>
   </header>
 
+  <!-- Fixed bottom tab bar for phones/tablets, shown only via CSS below 700px. -->
+  <nav class="tab-bar" aria-label="Primary">
+    <a href="#home">Home</a>
+    <a href="#work">Work</a>
+    <a href="#spots">Spots</a>
+  </nav>
+
   <main>
 
-    <div class="hero">
+    <div class="hero" id="home">
       <h1 class="hero-title" aria-label="A.M.S">
         <span class="hero-text">A.M.S</span><span class="hero-caret" aria-hidden="true"></span>
       </h1>
@@ -168,29 +175,19 @@
 
 <footer>
     <hr>
-    <!-- Check of de opening tags and closing tags matchen -->
-    <h2 class="bye">That is it for now.</h3>
-        <ul class="Contact">
-          <!-- wat is big??? dit kan je beter in CSS regelen. en left, right, center kan je weglaten, mischien kan je dit vervangen door logos? dat is moderner. Of mischien een heel ander design? -->
-            <li><big>Email:</big> (left)</li>
-            <li><big>Instagram:</big> (Center)</li>
-            <li><big>LinkedIn:</big>(Right)</li>
-        </ul>
-        <!-- Contact gegevens kunnen beter zijn, doordat je onze email al had wat in onze groupchat stond in teams. 
-         Ook moet je check of ze klikbaar zijn, dat zijn ze namelijk niet.-->
-
-         <!-- Als je in naar de website zelf kijkt, is het niet duidelijk, wat bij wat hoort. -->
-        <ul class="Contact2">
-            <li>Bounyadj@gmail.com</li>
-            <li>BennyH@nna</li>
-            <li>Bounyad Jabbar</li>
-            <li>Justin</li>
-            <li>@justin</li>
-            <li>Justin</li>
-            <li>@Hajar</li>
-            <li>Hajar</li>
-            <li>Hajar</li>
-        </ul>
+    <!-- TODO: vul de echte Instagram en LinkedIn profiel-URL's in. -->
+    <h2 class="bye">That is it for now.</h2>
+    <ul class="Contact">
+      <li>
+        <a href="mailto:Bounyadj@gmail.com"><span class="footer-label">Email:</span> Bounyadj@gmail.com</a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><span class="footer-label">Instagram:</span> @justin</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><span class="footer-label">LinkedIn:</span> Bounyad Jabbar</a>
+      </li>
+    </ul>
 </footer>
 
   </main>

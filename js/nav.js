@@ -5,7 +5,10 @@ const nav = document.querySelector(".site-nav");
 const sections = [...document.querySelectorAll("main > section[id]")];
 
 if (header) {
-  const links = nav ? [...nav.querySelectorAll("a[href^='#']")] : [];
+  const links = [
+  ...(nav ? [...nav.querySelectorAll("a[href^='#']")] : []),
+  ...[...document.querySelectorAll(".tab-bar a[href^='#']")],
+];
 
   let frame = 0;
   let lastY = window.scrollY;

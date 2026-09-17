@@ -41,20 +41,27 @@
 
 }
 
-.Contact{
-    list-style: none;
-    display: flex;
-    padding: 15px;
-    gap: 100px;
-    justify-content: center;
+.Contact {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  gap: 2rem;
+  justify-content: center;
 }
 
-.Contact2{
-    list-style: none;
-    display: flex;
-    padding: 15px;
-    gap: 100px;
-    justify-content: center;
+.Contact a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.Contact a:hover,
+.Contact a:focus-visible {
+  color: var(--color-text);
+}
+
+.footer-label {
+  color: var(--color-muted);
 }
 .carousel{
     margin: 100px auto;
