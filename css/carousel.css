@@ -44,15 +44,13 @@
     padding: 15px;
     gap: 100px;
     justify-content: center;
+    text-decoration: none;
 }
 
-.Contact2{
-    list-style: none;
-    display: flex;
-    padding: 15px;
-    gap: 100px;
-    justify-content: center;
+.Contact:hover{
+    color: pink;
 }
+
 .carousel{
     margin: 100px auto;
     width: 90%;
