@@ -63,6 +63,7 @@
 
 .section-label {
   margin: 0;
+  margin-left: 2rem;
   color: var(--color-muted);
 
   font-size: 0.75rem;
