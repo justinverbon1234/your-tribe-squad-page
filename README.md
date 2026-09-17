@@ -55,6 +55,7 @@ Bronnen
 - [FDND wiki / instructie](https://github.com/fdnd-task/your-tribe-squad-page/wiki)
 - [MDN — Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 - [MDN — prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+- [https://www.youtube.com/@BroCodez]
 
 ## Licentie
 
