@@ -12,16 +12,6 @@
   position: relative;
 }
 
-.carousel::scroll-button(left) {
-  content: "◄";
-}
-
-.carousel::scroll-button(right) {
-  content: "►";
-
-}
-
-
 .scroll{
     text-align: center;
 }
@@ -51,25 +41,22 @@
     color: pink;
 }
 
-.carousel{
-    margin: 100px auto;
-    width: 90%;
-    display: flex;
-    overflow-x: auto;
-    overscroll-behavior: contain;
-    gap: 1em
+.carousel {
+  margin: 100px auto;
+  width: 90%;
+  overflow: hidden;
 }
 
-.carousel::-webkit-scrollbar{
-    display: none;
+.carousel-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: spin 30s linear infinite;
 }
 
-.group{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5em;
-    animation: spin 20s infinite linear;
+.carousel:hover .carousel-track,
+.carousel:focus-within .carousel-track {
+  animation-play-state: paused;
 }
 
 
@@ -104,7 +91,13 @@
     border-radius: 25%;
 }
 
-@keyframes spin{
-    from{translate: 0;}
-    to {translate: -100%;}
+.group {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+@keyframes spin {
+  from { translate: 0; }
+  to { translate: calc(-50% - 0.75em); }
 }

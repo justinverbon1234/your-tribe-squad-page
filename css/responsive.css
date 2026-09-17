@@ -63,23 +63,6 @@
     padding-block: 5rem;
   }
 
-  .spot-slide {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .spot-image img {
-    aspect-ratio: 4 / 3;
-  }
-
-  .spot-description {
-    max-width: none;
-  }
-
-  .spot-thumbs {
-    overflow-x: auto;
-  }
-
   .constellation-stage {
     display: none;
   }
@@ -122,7 +105,7 @@
     text-align: center;
     font-size: 0.85rem;
 
-    background: rgb(8 8 8 / 60%);
+    background: rgba(46, 46, 46, 0.6);
     border: 1px solid rgb(244 244 241 / 12%);
     border-radius: 1rem;
   }
@@ -136,17 +119,28 @@
     border-radius: 0.75rem;
   }
 
-  .group {
+  .carousel-track {
     animation: none;
   }
 
   .carousel {
+    overflow-x: auto;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 0.5em;
   }
 
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
   .carousel .card {
     scroll-snap-align: center;
+  }
+
+  .carousel-track .group[aria-hidden="true"] {
+    display: none;
   }
 
   .Contact {
@@ -182,7 +176,7 @@
     animation: none;
   }
 
-  .spot-slide.is-active {
+  .carousel-track {
     animation: none;
   }
 
