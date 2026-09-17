@@ -55,6 +55,15 @@ footer hr{
     transition: color 0.3s ease;
 }
 
+.Contact a svg.contact-icon {
+    width: 1em;
+    height: 1em;
+
+    margin-right: 0.4em;
+
+    vertical-align: -0.12em;
+}
+
 .Contact a:hover,
 .Contact a:focus-visible{
     color: pink;
