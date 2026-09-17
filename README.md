@@ -4,7 +4,8 @@
 Squad page voor FDND.  
 Een one-pager die de squad voorstelt, doorlinkt naar ieders visitekaartje en campusplekken rond de Amstelcampus laat zien.
 
-**Live:** [justinverbon1234.github.io/your-tribe-squad-page](https://justinverbon1234.github.io/your-tribe-squad-page/)
+**Live:** [https://edu.nl/3m9fv)<img width="327" height="360" alt="Screenshot 2026-09-17 at 11 03 01" src="https://github.com/user-attachments/assets/323a5f92-b696-4358-933e-c4e774e39f06" />
+
 
 Leertaak: [fdnd-task/your-tribe-squad-page](https://github.com/fdnd-task/your-tribe-squad-page)  
 Instructie: [wiki](https://github.com/fdnd-task/your-tribe-squad-page/wiki)
